@@ -48,7 +48,7 @@ i-RevNets perform on par with baseline RevNet and ResNet.
 |------------------|--------|--------|--------------|--------------|
 | Val Top-1 Error: |  24.7  |  25.2  |    24.7      |    26.0      |
 
-Reconstructions from ILSVRC-2012 validation set. Top row original image, bottom tow reconstruction from final representation.
+Reconstructions from ILSVRC-2012 validation set. Top row original image, bottom row reconstruction from final representation.
 
 ![Inverse](./imgs/inverted_val_samples.jpg)
 
