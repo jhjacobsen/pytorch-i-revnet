@@ -106,8 +106,6 @@ def main():
             fname = 'i-revnet-'+str(sum(args.nBlocks)+1)
         elif (args.model == 'revnet'):
             raise NotImplementedError
-            model = revnet(args.blocks, args.downsamples, nClasses)
-            fname = 'revnet-'+str(args.blocks*3)
         else:
             print('Choose i-revnet or revnet')
             sys.exit(0)
