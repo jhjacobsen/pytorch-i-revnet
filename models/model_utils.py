@@ -33,7 +33,7 @@ class injective_pad(nn.Module):
         return x.permute(0, 2, 1, 3)
 
     def inverse(self, x):
-        return x[:, :self.pad_size, :, :]
+        return x[:, :x.size(1) - self.pad_size, :, :]
 
 
 class psi(nn.Module):
