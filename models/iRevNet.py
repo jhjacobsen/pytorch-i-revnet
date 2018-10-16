@@ -139,13 +139,14 @@ class iRevNet(nn.Module):
 
     def inverse(self, out_bij):
         """ irevnet inverse """
-        if self.init_ds != 0:
-            out_bij = self.init_psi.inverse(out_bij)
         out = split(out_bij)
         for i in range(len(self.stack)):
             out = self.stack[-1-i].inverse(out)
         out = merge(out[0],out[1])
-        x = self.init_psi.inverse(out)
+        if self.init_ds != 0:
+            x = self.init_psi.inverse(out)
+        else:
+            x = out
         return x
 
 
