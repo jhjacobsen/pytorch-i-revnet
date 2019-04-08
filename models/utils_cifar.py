@@ -102,6 +102,10 @@ def train(model, trainloader, trainset, epoch, num_epochs, batch_size, lr, use_c
         loss.backward()  # Backward Propagation
         optimizer.step()  # Optimizer update
 
+        try:
+            loss.data[0]
+        except IndexError:
+            loss.data = torch.reshape(loss.data, (1,))
         train_loss += loss.data[0]
         _, predicted = torch.max(out.data, 1)
         total += targets.size(0)
@@ -126,6 +130,10 @@ def test(model, testloader, testset, epoch, use_cuda, best_acc, dataset, fname):
         out, out_bij = model(inputs)
         loss = criterion(out, targets)
 
+        try:
+            loss.data[0]
+        except IndexError:
+            loss.data = torch.reshape(loss.data, (1,))
         test_loss += loss.data[0]
         _, predicted = torch.max(out.data, 1)
         total += targets.size(0)
